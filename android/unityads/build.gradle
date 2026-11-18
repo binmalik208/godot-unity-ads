@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'org.godotengine.godot.plugin.unityads'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 21
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    // Godot ne zai samar da waɗannan a lokacin export; a nan ana amfani da su ne don compile kawai.
+    compileOnly "org.godotengine:godot:${godotVersion}"
+    compileOnly "com.unity3d.ads:unity-ads:${unityAdsVersion}"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+}
